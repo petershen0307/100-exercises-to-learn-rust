@@ -45,6 +45,16 @@ impl Ticket {
     pub fn status(&self) -> &String {
         &self.status
     }
+
+    pub fn set_description(&mut self, description: String) {
+        *self = Ticket::new(self.title.clone(), description, self.status.clone());
+    }
+    pub fn set_status(&mut self, status: String) {
+        *self = Ticket::new(self.title.clone(), self.description.clone(), status);
+    }
+    pub fn set_title(&mut self, title: String) {
+        *self = Ticket::new(title, self.description.clone(), self.status.clone());
+    }
 }
 
 #[cfg(test)]
